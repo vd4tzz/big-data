@@ -1,0 +1,7 @@
+// video.proto
+syntax = "proto3";
+
+message VideoPayload {
+  string camera_id = 1;
+  bytes frame = 2;
+}

@@ -1,0 +1,11 @@
+// RUN SPARK 
+spark-submit `
+   --master local[2] `
+   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5,org.apache.spark:spark-protobuf_2.12:3.5.5 `
+   --conf "spark.driver.extraJavaOptions=-Dlog4j.configuration=file:/E:/big-data-final-project/log4j.properties" `
+   --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=file:/E:/big-data-final-project/log4j.properties" `
+test/con2.py
+
+// RUN KAFKA
+bin/windows/zookeeper-server-start.bat config/zookeeper.properties
+bin/windows/kafka-server-start.bat config/server.properties
